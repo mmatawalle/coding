@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CALCULATOR</title>
+    <style>
+      .wholebody {
+        border: 2px solid black;
+        width: 300px;
+        padding: 20px;
+        border-radius: 20px;
+        backdrop-filter: blur(7px);
+        box-shadow: 2px 2px 7px black;
+      }
+      .screen {
+        text-align: right;
+        /** width: ; **/
+        height: 70px;
+        background-color: rgb(245, 245, 245);
+        border-radius: 10px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 0 5%;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-image: url("/images/calc.jpg");
+        background-size: cover;
+        height: 100vh;
+      }
+      .button {
+        width: 65px;
+        height: 65px;
+        margin: 1%;
+        color: white;
+        background-color: black;
+      }
+      .button:last-child {
+        width: 140px;
+      }
+    </style>
+  </head>
+  <body>
+    <!--hjgwcycuydcudeuf uiviuiufiuvuirviuri-->
+    <div class="wholebody">
+      <div class="screen" id="screen"></div>
+      <hr style="color: black" />
+      <div class="buttonss">
+        <button id="C" class="button" onclick="del()" value="C">C</button>
+        <button id="divide" class="button" onclick="put('/')" value="/">
+          /
+        </button>
+
+        <button id="star" class="button" onclick="put('*')" value="*">*</button>
+
+        <button id="plus" class="button" onclick="put('+')">+</button>
+
+        <button id="substract" class="button" onclick="put('-')" value="-">
+          -
+        </button>
+        <button id="1" class="button" onclick="put('1')" value="1">1</button>
+        <button id="2" class="button" onclick="put('2')" value="2">2</button>
+        <button id="3" class="button" onclick="put(3)" value="3">3</button>
+        <button id="4" class="button" onclick="put(4)" value="4">4</button>
+        <button id="5" class="button" onclick="put(5)" value="5">5</button>
+        <button id="6" class="button" onclick="put(6)" value="6">6</button>
+        <button id="7" class="button" onclick="put(7)" value="7">7</button>
+        <button id="8" class="button" onclick="put(8)" value="8">8</button>
+        <button id="9" class="button" onclick="put(9)" value="9">9</button>
+        <button id="0" class="button" onclick="put(0)" value="0">0</button>
+        <button id="sin" class="button" onclick="dele()" value="sin">
+          DEL
+        </button>
+        <button id="cos" class="button" onclick="squareroot()" value="cos">
+          √
+        </button>
+        <button id="tan" class="button" onclick="put('.')">.</button>
+        <button id="result" onclick="calculate()" class="button">=</button>
+      </div>
+    </div>
+
+    <script>
+      let a = [];
+
+      function put(n) {
+        a.push(n);
+
+        console.log(a);
+
+        var screen = document.getElementById("screen");
+
+        let values = a.join("");
+
+        screen.innerHTML = values;
+      }
+
+      function del() {
+        a = [];
+
+        console.log(a);
+
+        var screen = document.getElementById("screen");
+
+        let values = a.join("");
+
+        screen.innerHTML = values;
+      }
+
+      function calculate() {
+        var screen = document.getElementById("screen");
+        let expression = a.join("");
+
+        try {
+          let result = eval(expression);
+          screen.innerHTML = result;
+        } catch (error) {
+          console.error(error);
+          screen.innerHTML = "Error";
+        }
+      }
+
+      function squareroot() {
+        try {
+          var screen = document.getElementById("screen");
+          var expression = a.join("");
+          var number = eval(expression);
+
+          if (isNaN(number) || number < 0) {
+            throw "Invalid input for square root";
+          }
+
+          const result = Math.sqrt(number);
+          screen.innerHTML = result.toString();
+        } catch (error) {
+          console.error(error);
+          screen.innerHTML = "Error";
+        }
+      }
+      function dele() {
+        a.pop();
+
+        console.log(a);
+
+        var screen = document.getElementById("screen");
+        screen.innerHTML = a.join("");
+      }
+    </script>
+    <script src="rockpaperscissors.js"></script>
+  </body>
+</html>

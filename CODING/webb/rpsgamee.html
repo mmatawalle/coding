@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ROCK, PAPER, SCISSORS GAME</title>
+    <style>
+      .screen {
+        text-align: right;
+        width: 300px;
+        height: 70px;
+        background-color: rgb(0, 0, 0);
+        color: white;
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: larger;
+      }
+      div {
+        align-items: center;
+        justify-content: center;
+        align-content: center;
+        border: 1px solid black;
+        max-width: 500px;
+        display: block;
+        margin: 50px auto;
+        border: 7px solid rgb(27, 27, 84);
+        border-radius: 35px;
+        backdrop-filter: blur(4px);
+        box-shadow: 2px 2px 7px rgb(10, 10, 39);
+
+        /**padding: 5px;
+        width: 100vh;
+        height: 100vh;**/
+      }
+      body {
+        background-image: url(/images/rps\ wallpaper.webp);
+        background-size: 100%;
+      }
+      body {
+        padding: 0px;
+        display: block;
+        align-items: center;
+        justify-content: center;
+        align-content: center;
+        margin: 50px auto;
+      }
+      img {
+        border-radius: 5px;
+        display: inline-block;
+        margin-right: 35px;
+        margin-left: 50px;
+      }
+      .comptsign {
+        display: none;
+      }
+      h3 {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <!--= prompt('pick a sign: ').toLowerCase()-->
+      <h3>CHOOSE ROCK, PAPER OR SCISSORS</h3>
+      <h3>YOUR SIGN</h3>
+      <img src="/images/rock .jpeg" alt="" onclick="play(1)" />
+      <img src="/images/paper .jpeg" alt="" onclick="play(2)" />
+      <img src="/images/scissors.jpeg" alt="" onclick="play(3)" />
+      <h3 class="compt-sign">COMPUTER SIGN</h3>
+      <img src="/images/rock .jpeg" alt="" class="comptsign" />
+      <img src="/images/paper .jpeg" alt="" class="comptsign" />
+      <img src="/images/scissors.jpeg" alt="" class="comptsign" />
+      <p id="comptsign"></p>
+      <div class="screen" id="screen"></div>
+    </div>
+  </body>
+
+  <script>
+    function play(n) {
+      let random = Math.floor(Math.random() * 3) + 1;
+      var comp_sign;
+      var your_sign;
+
+      if (random == 1) {
+        comp_sign = "rock";
+        var compt_screen = document.getElementById("comptsign");
+        compt_screen.innerHTML = "<img src='/images/rock .jpeg'>";
+      } else if (random == 2) {
+        comp_sign = "paper";
+        var compt_screen = document.getElementById("comptsign");
+        compt_screen.innerHTML = "<img src='/images/paper .jpeg'>";
+      } else {
+        comp_sign = "scissors";
+        var compt_screen = document.getElementById("comptsign");
+        compt_screen.innerHTML = "<img src='/images/scissors.jpeg'>";
+      }
+
+      if (n == 1) {
+        your_sign = "rock";
+      } else if (n == 2) {
+        your_sign = "paper";
+      } else {
+        your_sign = "scissors";
+      }
+
+      console.log(comp_sign);
+      console.log(your_sign);
+
+      var screen = document.getElementById("screen");
+
+      if (your_sign == comp_sign) {
+        screen.innerHTML = "Draw";
+      } else if ((your_sign == "rock") & (comp_sign == "paper")) {
+        screen.innerHTML = "You Lose, Paper beats Rock";
+      } else if ((your_sign == "rock") & (comp_sign == "scissors")) {
+        screen.innerHTML = "You won, Rock beats Scissors";
+      } else if ((your_sign == "paper") & (comp_sign == "rock")) {
+        screen.innerHTML = "You won, Paper beats Rock";
+      } else if ((your_sign == "paper") & (comp_sign == "scissors")) {
+        screen.innerHTML = "You Lose, Scissors beat Paper";
+      } else if ((your_sign == "scissors") & (comp_sign == "rock")) {
+        screen.innerHTML = "You Lose, Rock beats Scissors";
+      } else if ((your_sign == "scissors") & (comp_sign == "paper")) {
+        screen.innerHTML = "You Won, Scissors beats Paper";
+      } else {
+        screen.innerHTML = "ERROR";
+      }
+    }
+  </script>
+</html>
