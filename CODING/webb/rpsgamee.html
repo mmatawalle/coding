@@ -35,7 +35,7 @@
         height: 100vh;**/
       }
       body {
-        background-image: url(/images/rps\ wallpaper.webp);
+        background-image: url(../images/rps_wallpaper.webp);
         background-size: 100%;
       }
       body {
@@ -65,13 +65,13 @@
       <!--= prompt('pick a sign: ').toLowerCase()-->
       <h3>CHOOSE ROCK, PAPER OR SCISSORS</h3>
       <h3>YOUR SIGN</h3>
-      <img src="/images/rock .jpeg" alt="" onclick="play(1)" />
-      <img src="/images/paper .jpeg" alt="" onclick="play(2)" />
-      <img src="/images/scissors.jpeg" alt="" onclick="play(3)" />
+      <img src="../images/rock%20.jpeg" alt="" onclick="play(1)" />
+      <img src="../images/paper%20.jpeg" alt="" onclick="play(2)" />
+      <img src="../images/scissors.jpeg" alt="" onclick="play(3)" />
       <h3 class="compt-sign">COMPUTER SIGN</h3>
-      <img src="/images/rock .jpeg" alt="" class="comptsign" />
-      <img src="/images/paper .jpeg" alt="" class="comptsign" />
-      <img src="/images/scissors.jpeg" alt="" class="comptsign" />
+      <img src="../images/rock%20.jpeg" alt="" class="comptsign" />
+      <img src="../images/paper%20.jpeg" alt="" class="comptsign" />
+      <img src="../images/scissors.jpeg" alt="" class="comptsign" />
       <p id="comptsign"></p>
       <div class="screen" id="screen"></div>
     </div>
@@ -86,15 +86,15 @@
       if (random == 1) {
         comp_sign = "rock";
         var compt_screen = document.getElementById("comptsign");
-        compt_screen.innerHTML = "<img src='/images/rock .jpeg'>";
+        compt_screen.innerHTML = "<img src='../images/rock%20.jpeg'>";
       } else if (random == 2) {
         comp_sign = "paper";
         var compt_screen = document.getElementById("comptsign");
-        compt_screen.innerHTML = "<img src='/images/paper .jpeg'>";
+        compt_screen.innerHTML = "<img src='../images/paper%20.jpeg'>";
       } else {
         comp_sign = "scissors";
         var compt_screen = document.getElementById("comptsign");
-        compt_screen.innerHTML = "<img src='/images/scissors.jpeg'>";
+        compt_screen.innerHTML = "<img src='../images/scissors.jpeg'>";
       }
 
       if (n == 1) {
@@ -130,3 +130,4 @@
     }
   </script>
 </html>
+
